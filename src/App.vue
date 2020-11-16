@@ -7,8 +7,7 @@
     <router-view/>
   </div>
 </template>
-
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,5 +1,16 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <data-grid>
+    </data-grid>
   </div>
 </template>
+
+<script>
+import DataGrid from '@/components/DataGrid.vue'
+
+export default {
+  components: {
+    DataGrid
+  }
+}
+</script>
