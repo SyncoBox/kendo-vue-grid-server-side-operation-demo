@@ -85,4 +85,5 @@ import { toDataSourceRequestString, translateDataSourceResultGroups } from '@pro
 
 ## 參考連結
 
-[kendoReact 與 ASP.NET Core 整合範例](:https://www.telerik.com/kendo-react-ui/components/dataquery/mvc-integration/)
+- [kendoReact 與 ASP.NET Core 整合範例](:https://www.telerik.com/kendo-react-ui/components/dataquery/mvc-integration/)
+- [github repository](https://github.com/SyncoBox/kendo-vue-grid-server-side-operation-demo)
