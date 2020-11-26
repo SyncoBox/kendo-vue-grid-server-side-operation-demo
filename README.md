@@ -1,15 +1,92 @@
-# kendo-vue-grid-server-side-operation-demo
+# kendo-vue-guide
 
-為降低使用kendoVue Grid的學習成本, 特別將主要應用功能與後端串接的方法撰寫成文件，供開發者使用。
+為降低使用kendoVue Grid的學習成本，特別將主要應用功能與後端串接的方法撰寫成文件，供開發者使用。
 
 
-## 狀態序列化與解析資料需引用到的模組
+## 基本欄位設定(columns)
+
+為了配合後端的篩選正確，需要先設定grid的**columns**，每個欄位的field與filter屬性需與後端的一致。
+
+### field
+
+資料的屬性，若為物件則需定義該物件的特定屬性。
+
+``` javascript
+computed:{
+    columns:[
+         { field: "systemUser.name", filter: "string", width: "280px"}
+    ]
+}
+```
+
+### filter
+
+篩選的類別，分別分別有以下類型，分別是 **numeric**, **string**, **boolean**, **date**。
+
+``` javascript
+computed:{
+    columns:[
+        { field: "createdDate", filter: "date", width: "300px"},
+        { field: "versionNumber", filter: "numeric", width: "200px"},
+    ]
+}
+```
+## Kendo Grid props 與 component data 設定
+### 分頁(Paging)
+
+- grid props
+    - pageable: boolean true
+    - take: number 10
+    - skip: number 0
+- component data
+    - take: 一頁多少筆資料
+    - skip: 當前第一筆資料的位置
+### 篩選(Filtering)
+
+- grid props
+    - filterable: boolean true
+    - filter : array []
+
+```json
+[{"filters":[{"logic":"and","filters":[{"field":"name","operator":"contains","value":"rac"}]}],"logic":"and"}]
+```
+- component data
+    - filter: 篩選的物件陣列, 若預設不需要則設定為null
+### 排序(Sorting)
+
+- grid props
+    - sortable: boolean true
+    - sort : array []
+
+```json
+[{"field":"name","dir":"desc"}]
+```
+
+- component data
+    - sort: 排序的物件陣列, 若預設不需要則設定為null
+### 分群(Grouping)
+
+- grid props
+    - groupable: boolean true
+    - group : array []
+
+```json
+ [{"field":"name"}]
+```
+- component data
+    - group: 分群的物件陣列, 若預設不需要則設定為null
+
+
+
+
+## 向後端取得資料的方法(getData())
+### 將狀態序列化需引用到的模組
 
 ```javascript
 import { toDataSourceRequestString, translateDataSourceResultGroups } from '@progress/kendo-data-query';
 ```
 
-## 利用狀態改變的事件 (datastatechange) 到後端拿資料
+### 利用狀態改變的事件 (datastatechange) 到後端拿資料
 
 ``` javascript
 //grid event
@@ -48,38 +125,6 @@ import { toDataSourceRequestString, translateDataSourceResultGroups } from '@pro
       this.total = gridDataSource.total
     },
 ```
-
-### 分頁(Paging)
-
-- grid props
-    - pageable: boolean true
-    - take: number 10
-    - skip: number 0
-- component data
-    - take: 一頁多少筆資料
-    - skip: 當前第一筆資料的位置
-### 篩選(Filtering)
-
-- grid props
-    - filterable: boolean true
-    - filter : array [] , ex: {"filters":[{"logic":"and","filters":[{"field":"name","operator":"contains","value":"rac"}]}],"logic":"and"}
-- component data
-    - filter: 篩選的物件陣列, 若預設不需要則設定為null
-### 排序(Sorting)
-
-- grid props
-    - sortable: boolean true
-    - sort : array [], ex:[{"field":"name","dir":"desc"}]
-- component data
-    - sort: 排序的物件陣列, 若預設不需要則設定為null
-### 分群(Grouping)
-
-- grid props
-    - groupable: boolean true
-    - group : array [] , ex: [{"field":"name"}]
-- component data
-    - group: 分群的物件陣列, 若預設不需要則設定為null
-
 
 
 

@@ -1,4 +1,4 @@
-<template>
+ <template>
 <div>
     <label for="token">webim-api-dev token </label><input id='token' v-model='token' type="text">
     <Grid   ref="grid"
