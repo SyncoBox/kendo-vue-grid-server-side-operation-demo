@@ -2,7 +2,8 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">Post</router-link> |
+      <router-link :to="{name:'Get', params:{ projectId:'5252057b-5fa6-4eba-9e75-a9b9cd972b2f' }}">Get</router-link>
     </div>
     <router-view/>
   </div>
