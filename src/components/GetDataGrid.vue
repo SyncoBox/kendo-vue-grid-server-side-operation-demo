@@ -41,7 +41,7 @@ export default {
   },
   data: function () {
     return {
-      token: 'eyJhbGciOiJSUzI1NiIsImtpZCI6Ik9NZzNCcDJ6b1g0b3pJZEJfdHc1ZlEiLCJ0eXAiOiJhdCtqd3QifQ.eyJuYmYiOjE2MDY4OTEzMjEsImV4cCI6MTYwNjg5NDkyMSwiaXNzIjoiaHR0cHM6Ly9pZGVudGl0eS1kZXYuc3luY29ib3guY29tIiwiYXVkIjoicGFubzphbGwiLCJjbGllbnRfaWQiOiJzeW5jb2JveC1hcGktc3dhZ2dlciIsInN1YiI6ImU0MjIxYjA0LTM3ZjgtNDQzNy1hMDkzLTdlZmI0ZWFjNTk0NCIsImF1dGhfdGltZSI6MTYwNjg4ODU2MSwiaWRwIjoibG9jYWwiLCJBc3BOZXQuSWRlbnRpdHkuU2VjdXJpdHlTdGFtcCI6IllLSTdVR0o3Q0VJQlJMTUo2U1lXTEhUQlFUNllSS1JEIiwiZm9yZ2VfZXhwaXJlc19kYXRlIjoiMDAwMeW5tDHmnIgx5pelIOaYn-acn-S4gCIsInByZWZlcnJlZF91c2VybmFtZSI6ImRhbmllbGhzaWVoQHN5bmNvYm94LmNvbSIsIm5hbWUiOiJkYW5pZWxoc2llaEBzeW5jb2JveC5jb20iLCJlbWFpbCI6ImRhbmllbGhzaWVoQHN5bmNvYm94LmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImU0MjIxYjA0LTM3ZjgtNDQzNy1hMDkzLTdlZmI0ZWFjNTk0NCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJkYW5pZWxoc2llaEBzeW5jb2JveC5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJkYW5pZWxoc2llaEBzeW5jb2JveC5jb20iLCJzY29wZSI6WyJwYW5vOmFsbCJdLCJhbXIiOlsicHdkIl19.BljSXevx2xKKHMhpXx7krRw5v4PVjCL_R9QdRv4tKfemv5k30zbETOd2Ur5CZzI1_-XWlQv10yYd0VPlvHtsMQRxrR99eZvWgH8ozKBedzV8A_rIlNIksPYdXYs975wW5hpvmfKPY7D3cjCz6C06MXf90W_bKrDn-rgQyXDkbXAUh1aDp1uljKbuBNFMnKgq8QXSjscYmd3M1H8LEV8XyhFo7AFBtOeDNuX3Y_gDsKwYCFNi7qmIPqm8Ixf-NHKXEgMZ7MM17SfagNip5tuJQIaoLE2PimNX37aEd01t7RieCQuFTZ0AvDh3AxX2EEvw8PisS5XW1eWKx3OjV51sWQ',
+      token: null,
       filter: null,
       sort: null,
       group: null,
@@ -148,7 +148,6 @@ export default {
         sort: this.sort,
         group: this.group
       }
-      console.log('toDataSourceRequestString', toDataSourceRequestString)
       const queryStr = `${toDataSourceRequestString(dataState)}` // Serialize the state.
       const hasGroups = dataState.group && dataState.group.length
       const CONFIG = {
