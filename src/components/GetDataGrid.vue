@@ -33,7 +33,6 @@ import { toDataSourceRequestString, translateDataSourceResultGroups } from '@pro
 // import CommandCell from './CommandCell';
 import '@progress/kendo-theme-material/dist/all.css'
 
-import axios from 'axios'
 export default {
   components: {
     Grid,
@@ -150,12 +149,7 @@ export default {
       }
       const queryStr = `${toDataSourceRequestString(dataState)}` // Serialize the state.
       const hasGroups = dataState.group && dataState.group.length
-      const CONFIG = {
-        params: { test: 321 },
-        ...this.$API.config.getAuthorization()
-      }
-
-      const gridDataSource = await axios.get(`https://api-dev.syncobox.com/Project/${this.projectId}/Photo?${queryStr}`, CONFIG)
+      const gridDataSource = await this.$API.api.main.projectPhoto.get(this.projectId, queryStr)
       this.gridData = hasGroups ? translateDataSourceResultGroups(gridDataSource.data) : gridDataSource.data
       this.total = gridDataSource.total
     },
