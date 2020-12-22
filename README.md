@@ -14,14 +14,14 @@
 ``` javascript
 computed:{
     columns:[
-         { field: "systemUser.name", filter: "string", width: "280px"}
+         { field: "systemUser.name", filter: "text", width: "280px"}
     ]
 }
 ```
 
 ### filter
 
-篩選的類別，分別分別有以下類型，分別是 **numeric**, **string**, **boolean**, **date**。
+篩選的類別，分別分別有以下類型，分別是 **text**, **numeric**, **boolean**, **date**。
 
 ``` javascript
 computed:{
